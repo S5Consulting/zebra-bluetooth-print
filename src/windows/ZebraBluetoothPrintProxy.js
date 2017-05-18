@@ -14,7 +14,7 @@ var PrintPlugin = function() {
     var _successCallback = null;
     var _errorCallback = null;
 
-    this.print = function (successCallback, errorCallback, mac, zpl) {
+    function print(successCallback, errorCallback, mac, zpl) {
         debugger;
         if (!successCallback || ! errorCallback) {
             throw "Success or Error callback is not defined!";    
@@ -109,9 +109,13 @@ var PrintPlugin = function() {
         }
         return bytes;
     };
+
+    return {
+        print: print
+    }
 }
 
-module.exports = new PrintPlugin().print;
+module.exports = PrintPlugin();
 
 require("cordova/exec/proxy").add("ZebraBluetoothPrint", module.exports);
 
