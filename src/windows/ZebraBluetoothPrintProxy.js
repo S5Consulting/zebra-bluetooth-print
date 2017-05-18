@@ -110,7 +110,7 @@ var PrintPlugin = function() {
     };
 }
 
-module.exports = new PrintPlugin();
+module.exports = new PrintPlugin().print;
 
 require("cordova/exec/proxy").add("ZebraBluetoothPrint", module.exports);
 
