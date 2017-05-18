@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+      id="com.s5.ZebraBluetoothPrint"
+      version="0.1.0">
+    <name>ZebraBluetoothPrint</name>
+    <description>ZebraBluetoothPrint plugin for Apache Cordova</description>
+    <license>MIT</license>
+    <keywords></keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <js-module src="www/ZebraBluetoothPrint.js" name="ZebraBluetoothPrint">
+        <clobbers target="ZebraBluetoothPrint" />
+    </js-module>
+
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="src/windows/ZebraBluetoothPrintProxy.js" name="ZebraBluetoothPrintProxy">
+            <merges target="" />
+        </js-module>
+        <config-file target="package.appxmanifest" parent="/Package/Capabilities" versions=">=8.1.0" device-target="all">
+            <DeviceCapability Name="pointOfService" />
+            <DeviceCapability Name="bluetooth" />
+        </config-file>
+    </platform>
+
+</plugin>
