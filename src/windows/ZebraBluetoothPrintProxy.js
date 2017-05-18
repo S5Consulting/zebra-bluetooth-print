@@ -113,7 +113,7 @@ var PrintPlugin = function() {
 
 var printPlugin = new PrintPlugin();
 
-var module.exports = {
+module.exports = {
     print: function(successCallback, errorCallback, mac, zpl) {
         printPlugin.print(successCallback, errorCallback, mac, zpl);
     }
