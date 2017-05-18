@@ -1,6 +1,7 @@
 var ZebraBluetoothPrint = {
-    print: function (successCallback, errorCallback, mac, data) {
-        cordova.exec(successCallback, errorCallback, "ZebraBluetoothPrint", "print", [mac, data]);
+    print: function (successCallback, errorCallback, mac, zpl) {
+    	debugger;
+        cordova.exec(successCallback, errorCallback, "ZebraBluetoothPrint", "print", [mac, zpl]);
     }
 }
 
