@@ -15,6 +15,7 @@ var PrintPlugin = function() {
     var _errorCallback = null;
 
     this.print = function (successCallback, errorCallback, mac, zpl) {
+        debugger;
         if (!successCallback || ! errorCallback) {
             throw "Success or Error callback is not defined!";    
         } else {
