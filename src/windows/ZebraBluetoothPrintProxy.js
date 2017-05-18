@@ -17,6 +17,10 @@ var PrintPlugin = function() {
     this.print = function(successCallback, errorCallback, mac, zpl) {
         if (!successCallback || !errorCallback) {
             throw "Success or Error callback is not defined!";    
+        } else if (!mac || mac.length !== 12) {
+            throw "MAC address is not defined or invalid!";    
+        } else if (!data) {
+            throw "Data string is empty!";
         } else {
             _successCallback = successCallback;
             _errorCallback = errorCallback;
@@ -114,7 +118,11 @@ var printPlugin = new PrintPlugin();
 
 module.exports = {
     print: function(successCallback, errorCallback, data) {
-        printPlugin.print(successCallback, errorCallback, data[0], data[1]);
+        try {
+            printPlugin.print(successCallback, errorCallback, data[0], data[1]);
+        } catch (ex) {
+            errorCallback(ex);
+        }        
     }
 }
 
