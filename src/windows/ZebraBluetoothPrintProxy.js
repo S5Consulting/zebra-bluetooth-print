@@ -26,7 +26,7 @@ var PrintPlugin = function() {
             _errorCallback = errorCallback;
         }
 
-        getDeviceInfo(normalize(mac)).then(function(data) {
+        getDeviceInfo(normalize(mac, 2)).then(function(data) {
             getService(data).then(function(service) {
                 try {
                     sendZpl(service, zpl);
@@ -96,9 +96,9 @@ var PrintPlugin = function() {
         socket.close();
     };
 
-    function normalize(str, n = 2) {
-        var ret = [], i, len;
-        for(i = 0, len = str.length; i < len; i += n) {
+    function normalize(str, n) {
+        var ret = [];
+        for(var i = 0, len = str.length; i < len; i += n) {
             ret.push(str.substr(i, n))
         }
         return ret.join(":");
