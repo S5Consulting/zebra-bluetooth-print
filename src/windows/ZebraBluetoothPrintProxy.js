@@ -58,7 +58,7 @@ var PrintPlugin = function() {
     };
 
     function getDeviceInfo(mac) {
-        return new Promise(function(resolve, reject) {
+        return new WinJS.Promise(function(resolve, reject) {
             // get all paired devices.
             DeviceInformation.findAllAsync(BluetoothDevice.getDeviceSelector(), null).done(function(data) {
                 for (var i = 0; i < data.length; i++) {
@@ -74,7 +74,7 @@ var PrintPlugin = function() {
     };
 
     function getService(data) {
-        return new Promise(function(resolve, reject) {
+        return new WinJS.Promise(function(resolve, reject) {
             BluetoothDevice.fromIdAsync(data.id).done(function(device) {
                 if (device) {
                     device.getRfcommServicesForIdAsync(RFCOMMID, CACHEMODE).done(function(result) {
