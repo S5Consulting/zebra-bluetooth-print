@@ -15,12 +15,13 @@ var PrintPlugin = function() {
     var _errorCallback = null;
 
     this.print = function(successCallback, errorCallback, mac, zpl) {
+        debugger;
         if (!successCallback || !errorCallback) {
             throw "Success or Error callback is not defined!";    
         } else if (!mac || mac.length !== 12) {
             throw "MAC address is not defined or invalid!";    
-        } else if (!data) {
-            throw "Data string is empty!";
+        } else if (!zpl) {
+            throw "zpl is empty!";
         } else {
             _successCallback = successCallback;
             _errorCallback = errorCallback;
